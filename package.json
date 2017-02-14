@@ -1,0 +1,31 @@
+{
+  "name": "touchfeedback.js",
+  "description": "",
+  "version": "1.0.0",
+  "author": "tmiame@gmail.com",
+  "license": "MIT",
+  "main": "touchfeedback-compiled.js",
+  "files": [
+    "touchfeedback-compiled.js"
+  ],
+  "scripts": {
+    "dev": "babel touchfeedback.js --watch --out-file touchfeedback-compiled.js --source-maps inline",
+    "build": "babel touchfeedback.js --out-file touchfeedback-compiled.js",
+    "webpack": "webpack --progress --watch --config examples/webpack/webpack.config.js"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.22.1",
+    "babel-plugin-transform-es2015-modules-umd": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
+    "webpack": "^2.2.1"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ],
+    "plugins": [
+      "transform-es2015-modules-umd"
+    ],
+    "comments": false
+  }
+}

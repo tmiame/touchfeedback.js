@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+  </head>
+  <body>
+    <style>
+    .is-touch {
+      background-color: red;
+    }
+    </style>
+    <h1 id="ok" data-touch>test</h1>
+
+    <script src="../../touchfeedback-compiled.js"></script>
+    <script>
+    console.log('directInclude')
+    console.log(touchfeedback)
+    touchfeedback.STATE_CLICK = 'o'
+    touchfeedback.init()
+
+    setTimeout(() => {
+      touchfeedback.refresh()
+      console.log('refresh')
+    }, 2000)
+
+    setTimeout(() => {
+      const el = document.getElementById('ok')
+      el.parentNode.removeChild(el)
+    }, 3000)
+
+    setTimeout(() => {
+      touchfeedback.destory()
+      console.log('destory')
+    }, 6000)
+    // var foo = new Foo; // => Uncaught ReferenceError: Foo is not defined
+    // foo.bar();
+    </script>
+  </body>
+</html>
