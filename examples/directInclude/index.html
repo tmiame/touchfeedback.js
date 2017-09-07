@@ -8,35 +8,48 @@
   </head>
   <body>
     <style>
-    .is-touch {
+    body {
+      padding: 10vw;
+    }
+    .button {
+      border: 1px solid #000000;
+      padding: 0.5em;
+      text-align: center;
+    }
+    .is-el-touch {
       background-color: red;
     }
+    .is-el-touch:before {
+      content: 'Hover:';
+    }
+    .is-el-click {
+      color: red;
+      background-color: white;
+    }
+    .is-el-click:before {
+      content: 'Click:';
+    }
     </style>
-    <h1 id="ok" data-touch>test</h1>
+
+    <h1>TouchFeedback.js Example</h1>
+    <h2 class="button" data-touch>Touch✌️</h2>
 
     <script src="../../touchfeedback-compiled.js"></script>
     <script>
-    console.log('directInclude')
-    console.log(touchfeedback)
-    touchfeedback.STATE_CLICK = 'o'
-    touchfeedback.init()
+    touchfeedback.init({
+      hoverClass: 'is-el-touch',
+      clickClass: 'is-el-click',
+    })
 
-    setTimeout(() => {
-      touchfeedback.refresh()
-      console.log('refresh')
-    }, 2000)
+    // setTimeout(() => {
+    //   touchfeedback.refresh()
+    //   console.log('refresh')
+    // }, 2000)
 
-    setTimeout(() => {
-      const el = document.getElementById('ok')
-      el.parentNode.removeChild(el)
-    }, 3000)
-
-    setTimeout(() => {
-      touchfeedback.destory()
-      console.log('destory')
-    }, 6000)
-    // var foo = new Foo; // => Uncaught ReferenceError: Foo is not defined
-    // foo.bar();
+    // setTimeout(() => {
+    //   touchfeedback.destory()
+    //   console.log('destory')
+    // }, 6000)
     </script>
   </body>
 </html>
