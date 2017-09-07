@@ -1,7 +1,7 @@
 {
   "name": "touchfeedback.js",
   "description": "",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "tmiame@gmail.com",
   "license": "MIT",
   "main": "touchfeedback-compiled.js",
