@@ -13,6 +13,22 @@
     "build": "babel touchfeedback.js --out-file touchfeedback-compiled.js",
     "webpack": "webpack --progress --watch --config examples/webpack/webpack.config.js"
   },
+  "directories": {
+    "example": "examples"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tmiame/touchfeedback.js.git"
+  },
+  "keywords": [
+    "hover",
+    "touch"
+  ],
+  "bugs": {
+    "url": "https://github.com/tmiame/touchfeedback.js/issues"
+  },
+  "homepage": "https://github.com/tmiame/touchfeedback.js#readme",
   "devDependencies": {
     "babel-cli": "^6.22.1",
     "babel-plugin-transform-es2015-modules-umd": "^6.23.0",
@@ -27,5 +43,5 @@
       "transform-es2015-modules-umd"
     ],
     "comments": false
-  }
+  },
 }

@@ -48,8 +48,8 @@ const eventPointer = {
 }
 
 const _this = {
-  STATE_HOVER: 'is-touch',
-  STATE_CLICK: 'is-click',
+  STATE_HOVER_CLASS: 'is-touch',
+  STATE_CLICK_CLASS: 'is-click',
   STATE_TAP: false,
 
   findNode(target) {
@@ -65,12 +65,12 @@ const _this = {
 
   touchAddClass(e) {
     const el = _this.findNode(e.target)
-    el.classList.add(_this.STATE_HOVER)
+    el.classList.add(_this.STATE_HOVER_CLASS)
   },
 
   touchRemoveClass(e) {
     const el = _this.findNode(e.target)
-    el.classList.remove(_this.STATE_HOVER)
+    el.classList.remove(_this.STATE_HOVER_CLASS)
   },
 
   tapedTouchStart() {
@@ -86,10 +86,10 @@ const _this = {
       return
     }
     const el = _this.findNode(e.target)
-    el.classList.add(_this.STATE_CLICK)
+    el.classList.add(_this.STATE_CLICK_CLASS)
     setTimeout(() => {
-      el.classList.remove(_this.STATE_CLICK)
-    }, 100)
+      el.classList.remove(_this.STATE_CLICK_CLASS)
+    }, 200)
   },
 
   removeEvent() {
@@ -118,7 +118,12 @@ const _this = {
     }
   },
 
-  init() {
+  /**
+   * @param {Object} customOptions
+   */
+  init(customOptions = {}) {
+    _this.STATE_HOVER_CLASS = (customOptions.hoverClass) ? customOptions.hoverClass : 'is-touch'
+    _this.STATE_CLICK_CLASS = (customOptions.clickClass) ? customOptions.clickClass : 'is-click'
     _this.setEvent()
   },
 
