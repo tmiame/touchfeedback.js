@@ -95,6 +95,17 @@
         el.classList.remove(_this.STATE_CLICK_CLASS);
       }, 200);
     },
+    removeClass: function removeClass() {
+      var touchEl = document.querySelectorAll('[data-touch]');
+      for (var i = 0; i < touchEl.length; i++) {
+        if (touchEl[i].classList.contains(_this.STATE_HOVER_CLASS)) {
+          touchEl[i].classList.remove(_this.STATE_HOVER_CLASS);
+        }
+        if (touchEl[i].classList.contains(_this.STATE_CLICK_CLASS)) {
+          touchEl[i].classList.remove(_this.STATE_CLICK_CLASS);
+        }
+      }
+    },
     removeEvent: function removeEvent() {
       var touchEl = document.querySelectorAll('[data-touch]');
       for (var i = 0; i < touchEl.length; i++) {
@@ -126,10 +137,12 @@
     },
     refresh: function refresh() {
       _this.removeEvent();
+      _this.removeClass();
       _this.setEvent();
     },
     destory: function destory() {
       _this.removeEvent();
+      _this.removeClass();
     }
   };
 
